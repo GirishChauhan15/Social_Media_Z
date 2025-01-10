@@ -1,0 +1,1 @@
+export const dbName = 'Social_Media_Z'
