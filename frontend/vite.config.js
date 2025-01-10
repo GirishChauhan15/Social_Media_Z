@@ -5,6 +5,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   resolve: {
+    mainFields: ['module', 'jsnext:main', 'main'],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
