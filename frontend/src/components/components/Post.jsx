@@ -13,8 +13,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Moment from "react-moment";
-import { Button, CommentList, TextArea, Container } from './index'
+import { Button, CommentList, TextArea, Container } from "./index";
+import dayjs from "dayjs";
 
 function Post({ post, showInfo = true }) {
   const [commentInput, setCommentInput] = useState("");
@@ -132,10 +132,11 @@ function Post({ post, showInfo = true }) {
                     <Trash className="w-4 active:fill-red-500" />
                   </button>
                 )}
-
-                <p className="text-sm text-gray-500">
-                  <Moment format="DD-MM-YYYY, h:mm a">{post?.updatedAt}</Moment>
-                </p>
+                {post?.updatedAt && (
+                  <p className="text-xs text-gray-500">
+                    {dayjs(post?.updatedAt).format("DD-MM-YYYY, h:mm a")}
+                  </p>
+                )}
               </div>
             </div>
           </div>
